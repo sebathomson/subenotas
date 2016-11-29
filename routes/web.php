@@ -18,4 +18,10 @@ Route::get('/colegio-por-comuna', 'AppController@colegioPorComuna')->name('coleg
 
 Route::post('/guardar', 'AppController@guardar')->name('guardar');
 
-Route::get('/descargar', 'AdminController@descargar')->name('descargar');
+
+Route::get('/ingresar', 'AdminController@ingresar')->name('ingresar');
+Route::get('/salir', 'AdminController@salir')->name('salir');
+Route::get('/admin', 'AdminController@admin')->name('admin');
+Route::post('/descargar', 'AdminController@descargar')->name('descargar');
+
+// Auth::routes();

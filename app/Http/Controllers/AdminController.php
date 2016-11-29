@@ -7,14 +7,47 @@ use Illuminate\Http\Request;
 use Validator;
 use View;
 use App\Alumno;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     /**
      * @return Response
      */
+    public function admin()
+    {
+        return View::make('admin');
+    }
+
+    /**
+     * @return Response
+     */
+    public function salir()
+    {
+        Auth::logout();
+
+        return redirect()->route('ingresar');
+    }
+
+    /**
+     * @return Response
+     */
+    public function ingresar()
+    {
+        Auth::logout();
+
+        return View::make('ingresar');
+    }
+
+    /**
+     * @return Response
+     */
     public function descargar()
     {
+        if (!Auth::check()) {
+            return redirect()->route('inicio');
+        }
+
         \Excel::create('Alumnos - Preupdv', function($excel) {
             // Set the title
             $excel->setTitle('Alumnos - Preupdv');
@@ -78,7 +111,6 @@ class AdminController extends Controller
                         ));
                 }
             });
-
         })->export('xls');
     }
 
