@@ -17,3 +17,5 @@ Route::get('/respuesta', 'AppController@respuesta')->name('respuesta');
 Route::get('/colegio-por-comuna', 'AppController@colegioPorComuna')->name('colegioporcomuna');
 
 Route::post('/guardar', 'AppController@guardar')->name('guardar');
+
+Route::get('/descargar', 'AdminController@descargar')->name('descargar');
