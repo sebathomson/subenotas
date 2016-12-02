@@ -24,4 +24,7 @@ Route::get('/salir', 'AdminController@salir')->name('salir');
 Route::get('/admin', 'AdminController@admin')->name('admin');
 Route::post('/descargar', 'AdminController@descargar')->name('descargar');
 
-// Auth::routes();
+Auth::routes();
+
+Route::get('/login', 'AdminController@ingresar')->name('ingresar');
+Route::get('/register', 'AdminController@ingresar')->name('ingresar');
